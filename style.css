@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;800&display=swap");
+:root {
+  --color-primary: #6c64fb;
+  --color-secondary: #748cf1;
+  --color-dark: #24142c;
+  --color-accent: #9e616b;
+  --color-light: #abaed3;
+  --color-background: #3e3b51;
+}
+
+.body {
+  background-color: #9e616b;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  background-color: #24142c;
+}
+
+header {
+  width: auto;
+  background-color: var(--color-light);
+  text-align: center;
+}
+
+input[type="text"],
+button[type="submit"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+main {
+  margin-top: 20px;
+}
+
+.card {
+  background-color: var(--color-light);
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+footer {
+  width: auto;
+  height: 1.2em;
+  background-color: var(--color-light);
+  text-align: center;
+  margin-top: 20px;
+}
+#weatherDivs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
