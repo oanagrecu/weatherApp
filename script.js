@@ -1,69 +1,67 @@
 const city = document.getElementById("cityName");
 const submitButton = document.getElementById("submitButton");
 const weatherDiv = document.getElementById("weatherDivs");
-
-// const urlForecast =
-//   "https://api.openweathermap.org/data/2.5/forecast?appid=899ebe2b8a35dfdf38dd465a71c3f9fa&units=metric&q=";
-
+var mykey = config.MY_KEY;
+var secretKey = config.SECRET_KEY;
 submitButton.addEventListener("click", getWeather);
 function getWeather() {
-    //   const cityName = city.value;
-    //   var city = document.getElementById("cityName").value;
-    //   let urlCity = urlForecast + city.value;
-    //   console.log(urlCity);
-    fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?appid=899ebe2b8a35dfdf38dd465a71c3f9fa&units=metric&q=${city.value}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        //   console.log(data.list[0].dt_txt.split(" ")[0]);
-        //   console.log(data.list[0].dt_txt.split(" ")[1]);
-        //   console.log(data.list[0].main.temp_max);
-        var dailyWeather = 0;
-        for (let i = 0; i < data.list.length; i++) {
-          if (
-            data.list[i].dt_txt.split(" ")[0] !==
-            data.list[i + 1].dt_txt.split(" ")[0]
-          ) {
-            dailyWeather = i + 1;
-            break;
-          }
+  //   const cityName = city.value;
+  //   var city = document.getElementById("cityName").value;
+  //   let urlCity = urlForecast + city.value;
+  //   console.log(urlCity);
+  fetch(
+    `https://api.openweathermap.org/data/2.5/forecast?appid='+secretKey'&q=${city.value}`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      //   console.log(data.list[0].dt_txt.split(" ")[0]);
+      //   console.log(data.list[0].dt_txt.split(" ")[1]);
+      //   console.log(data.list[0].main.temp_max);
+      var dailyWeather = 0;
+      for (let i = 0; i < data.list.length; i++) {
+        if (
+          data.list[i].dt_txt.split(" ")[0] !==
+          data.list[i + 1].dt_txt.split(" ")[0]
+        ) {
+          dailyWeather = i + 1;
+          break;
         }
-        weatherDiv.innerHTML = "";
+      }
+      weatherDiv.innerHTML = "";
 
-        createPrognozaBoxDiv(data, weatherDiv, dailyWeather, dailyWeather);
-        createPrognozaBoxDiv(
-          data,
-          weatherDiv,
-          dailyWeather + 12,
-          dailyWeather + 12
-        );
-        createPrognozaBoxDiv(
-          data,
-          weatherDiv,
-          dailyWeather + 22,
-          dailyWeather + 22
-        );
-        createPrognozaBoxDiv(
-          data,
-          weatherDiv,
-          dailyWeather + 30,
-          dailyWeather + 30
-        );
-        createPrognozaBoxDiv(
-          data,
-          weatherDiv,
-          dailyWeather + 45,
-          dailyWeather + 45
-        );
-        createPrognozaBoxDiv(
-          data,
-          weatherDiv,
-          dailyWeather + 57,
-          dailyWeather + 57
-        );
-      });
-  }
+      createPrognozaBoxDiv(data, weatherDiv, dailyWeather, dailyWeather);
+      createPrognozaBoxDiv(
+        data,
+        weatherDiv,
+        dailyWeather + 12,
+        dailyWeather + 12
+      );
+      createPrognozaBoxDiv(
+        data,
+        weatherDiv,
+        dailyWeather + 22,
+        dailyWeather + 22
+      );
+      createPrognozaBoxDiv(
+        data,
+        weatherDiv,
+        dailyWeather + 30,
+        dailyWeather + 30
+      );
+      createPrognozaBoxDiv(
+        data,
+        weatherDiv,
+        dailyWeather + 45,
+        dailyWeather + 45
+      );
+      createPrognozaBoxDiv(
+        data,
+        weatherDiv,
+        dailyWeather + 57,
+        dailyWeather + 57
+      );
+    });
+}
 
 function createPrognozaHoursOutput(
   name,
