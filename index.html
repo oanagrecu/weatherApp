@@ -3,27 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;800&display=swap" rel="stylesheet">
-<script src="https://kit.fontawesome.com/3e441800cd.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;60;800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/3e441800cd.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
     <title>Weather App</title>
   </head>
   <body>
     <div class="container">
       <header>
         <h1>What`s the weather like?</h1>
-        <input type="text"
+        <input
+          type="text"
           name="cityName"
           id="cityName"
           placeholder="Enter a city name"
         />
-        <button id="submitButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button id="submitButton">Daily</button>
+        <button id="hourlyWeather">Hourly</button>
       </header>
       <main>
         <div id="weatherDivs"></div>
+        <div id="hourlyDivs"></div>
       </main>
       <footer>Weather App &copy; 2023 by Oana Grecu</footer>
     </div>

@@ -8,55 +8,97 @@
   --color-background: #3e3b51;
 }
 
-.body {
-  background-color: #9e616b;
+body {
+  background-color: white;
   background-repeat: no-repeat;
   background-size: cover;
-  
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 .container {
-  background-color: #24142c;
+  background-color: #ebe4ef;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 header {
-  width: auto;
+  padding: 20px 0 20px 0;
+  width: 100vw;
   background-color: var(--color-light);
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  color: var(--color-accent);
+  font-weight: 800;
+  font-size: 1.6em;
+}
+input[type="text"] {
+  width: 50vw;
   text-align: center;
 }
-
 input[type="text"],
-button[type="submit"] {
-  display: block;
+button {
+  display: flex;
   margin-left: auto;
   margin-right: auto;
   padding: 10px;
   margin-bottom: 10px;
-}
-
-main {
-  margin-top: 20px;
-}
-
-.card {
+  border-radius: 5px;
+  border: none; /* Remove the default border */
+  border-bottom: 3px solid var(--color-accent);
   background-color: var(--color-light);
-  padding: 20px;
-  margin-bottom: 10px;
+  color: var(--color-accent);
+  font-size: 20px;
 }
-
+button {
+  display: inline-block;
+  border: 1px solid;
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: white;
+  font-weight: bold;
+}
+#weatherDivs {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.weather-card {
+  padding-top: 10px;
+  text-align: center;
+  background-color: var(--color-light);
+  border-radius: 5px;
+  width: 200px;
+}
+#hourlyDivs {
+  padding-top: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.hourly-weather-card {
+  padding-top: 10px;
+  text-align: center;
+  background-color: var(--color-light);
+  border-radius: 5px;
+  width: 200px;
+}
 footer {
   width: auto;
   height: 1.2em;
   background-color: var(--color-light);
   text-align: center;
-  margin-top: 20px;
-}
-#weatherDivs {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
+  padding: 20px 0 20px 0;
+  margin-top: 10px;
+  color: var(--color-accent);
+  font-size: 1.3rem;
+  font-weight: 600;
 }
