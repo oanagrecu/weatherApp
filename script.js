@@ -3,8 +3,8 @@ const submitButton = document.getElementById("submitButton");
 const hourlyWeather = document.getElementById("hourlyWeather");
 const weatherDiv = document.getElementById("weatherDivs");
 const hourlyDivs = document.getElementById("hourlyDivs");
-var myKey = config.SECRET_KEY;
-var splashKey = config.Access_Key;
+var myKey = "899ebe2b8a35dfdf38dd465a71c3f9fa";
+var splashKey = "JrCz77r_DctCyQ4a5ZNjyIilvXVEAN_k-jCjrhrbErg";
 submitButton.addEventListener("click", getDailyWeather);
 hourlyWeather.addEventListener("click", getHourlyWeather);
 
