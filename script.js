@@ -1,5 +1,3 @@
-import config from "./config.js";
-
 const city = document.getElementById("cityName");
 const submitButton = document.getElementById("submitButton");
 const hourlyWeather = document.getElementById("hourlyWeather");
