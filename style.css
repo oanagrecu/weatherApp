@@ -10,6 +10,7 @@
 
 body {
   height: 100%;
+  background-image: url(./pngkit_clounds-png_3940762.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -36,7 +37,7 @@ header {
   font-size: 1.2em;
 }
 input[type="text"] {
-  width: 50vw;
+  width: 65vw;
   text-align: center;
 }
 input[type="text"],
@@ -69,7 +70,7 @@ button {
   padding-top: 20px;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   gap: 40px;
@@ -79,8 +80,8 @@ button {
   text-align: center;
   background-color: var(--color-light);
   border-radius: 10px;
+  box-shadow: -4px 3px 20px 4px rgb(215, 214, 214) inset;
   transition: all 0.3s ease-in-out;
-
   width: 200px;
 }
 .weather-card:hover {
@@ -104,7 +105,6 @@ button {
   width: 50%;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   margin-left: 20px;
   margin-bottom: 10px;
@@ -147,11 +147,12 @@ button {
 }
 footer {
   margin-top: 20px;
-  width: auto;
+  width: 100vw;
   height: 1.2em;
   background-color: var(--color-light);
   text-align: center;
   padding: 20px 0 20px 0;
+  overflow: auto;
 
   color: var(--color-accent);
   font-size: 1.3rem;
@@ -160,7 +161,7 @@ footer {
 .city-image {
   display: flex;
   flex-direction: column;
-  max-width: 60%;
+  max-width: 50%;
   height: auto;
   margin-bottom: 10px;
 }

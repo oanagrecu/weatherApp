@@ -1,3 +1,5 @@
+import config from "./config.js";
+
 const city = document.getElementById("cityName");
 const submitButton = document.getElementById("submitButton");
 const hourlyWeather = document.getElementById("hourlyWeather");
@@ -8,6 +10,11 @@ var splashKey = config.Access_Key;
 submitButton.addEventListener("click", getDailyWeather);
 hourlyWeather.addEventListener("click", getHourlyWeather);
 
+city.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    getDailyWeather();
+  }
+});
 function getDailyWeather() {
   fetch(
     `https://api.openweathermap.org/data/2.5/forecast?appid=${myKey}&units=metric&q=${city.value}`
@@ -183,17 +190,17 @@ function displayCityImage(city, data) {
     });
 }
 
-function generateBackgroundImage() {
-  fetch(
-    `https://api.unsplash.com/photos/random?query=europe&client_id=${splashKey}`
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      const imageUrl = data.urls.regular;
-      document.body.style.backgroundImage = `url(${imageUrl})`;
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-}
-generateBackgroundImage();
+// function generateBackgroundImage() {
+//   fetch(
+//     `https://api.unsplash.com/photos/random?query=europe&client_id=${splashKey}`
+//   )
+//     .then((response) => response.json())
+//     .then((data) => {
+//       const imageUrl = data.urls.regular;
+//       document.body.style.backgroundImage = `url(${imageUrl})`;
+//     })
+//     .catch((error) => {
+//       console.error("Error:", error);
+//     });
+// }
+// generateBackgroundImage();
