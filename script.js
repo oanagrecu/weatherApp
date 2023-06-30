@@ -5,6 +5,13 @@ const weatherDiv = document.getElementById("weatherDivs");
 const hourlyDivs = document.getElementById("hourlyDivs");
 var myKey = "899ebe2b8a35dfdf38dd465a71c3f9fa";
 var splashKey = "JrCz77r_DctCyQ4a5ZNjyIilvXVEAN_k-jCjrhrbErg";
+var cookieName = "lastSearch";
+
+const lastSearch = getSavedSearch();
+if (lastSearch) {
+  city.value = lastSearch;
+}
+
 submitButton.addEventListener("click", getDailyWeather);
 hourlyWeather.addEventListener("click", getHourlyWeather);
 
@@ -14,37 +21,61 @@ city.addEventListener("keydown", (e) => {
   }
 });
 function getDailyWeather() {
-  fetch(
-    `https://api.openweathermap.org/data/2.5/forecast?appid=${myKey}&units=metric&q=${city.value}`
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      createPrognozaBoxDiv(data);
-      weatherDiv.style.display = "flex";
-      hourlyDivs.style.display = "none";
-    })
-    .catch((error) => {
-      console.log("An error occurred:", error);
-    });
+  const searchValue = city.value;
+  if (searchValue) {
+    // Save the search value to localStorage
+    saveSearch(searchValue);
+    fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?appid=${myKey}&units=metric&q=${city.value}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        createPrognozaBoxDiv(data);
+        weatherDiv.style.display = "flex";
+        hourlyDivs.style.display = "none";
+      })
+      .catch((error) => {
+        console.log("An error occurred:", error);
+      });
+  }
 }
 
 function getHourlyWeather() {
-  fetch(
-    `https://api.openweathermap.org/data/2.5/forecast?appid=${myKey}&units=metric&q=${city.value}`
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      createPrognozaHourlyDiv(data);
-      weatherDiv.style.display = "none";
-      hourlyDivs.style.display = "flex";
-    })
-    .catch((error) => {
-      console.log("An error occurred:", error);
-    });
+  const searchValue = city.value;
+  if (searchValue) {
+    // Save the search value to localStorage and set a cookie
+    saveSearch(searchValue);
+    fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?appid=${myKey}&units=metric&q=${city.value}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        createPrognozaHourlyDiv(data);
+        weatherDiv.style.display = "none";
+        hourlyDivs.style.display = "flex";
+      })
+      .catch((error) => {
+        console.log("An error occurred:", error);
+      });
+  }
+}
+function saveSearch(searchValue) {
+  // Save the search value to localStorage
+  localStorage.setItem("lastSearch", searchValue);
+
+  // Set a cookie to remember the search value across visits
+  document.cookie = `${cookieName}=${searchValue}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
 }
 
+function getSavedSearch() {
+  // Check if localStorage has the search value
+  const localStorageSearch = localStorage.getItem("lastSearch");
+  if (localStorageSearch) {
+    return localStorageSearch;
+  }
+}
 function createPrognozaBoxDiv(data) {
   weatherDiv.innerHTML = "";
   displayCityImage(city.value, data);
