@@ -69,7 +69,7 @@ function saveSearch(searchValue) {
   localStorage.setItem("lastSearch", searchValue);
 
   // Set a cookie to remember the search value across visits
-  document.cookie = `${cookieName}=${searchValue}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+  document.cookie = `${cookieName}=${searchValue}`;
 }
 
 function getSavedSearch() {
