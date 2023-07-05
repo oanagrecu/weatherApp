@@ -1,12 +1,12 @@
 import config from "./config.js";
-console.log(config.secret_key);
+// console.log(config.secret_key);
 const city = document.getElementById("cityName");
 const submitButton = document.getElementById("submitButton");
 const hourlyWeather = document.getElementById("hourlyWeather");
 const weatherDiv = document.getElementById("weatherDivs");
 const hourlyDivs = document.getElementById("hourlyDivs");
-// var myKey = "899ebe2b8a35dfdf38dd465a71c3f9fa";
-// var splashKey = "JrCz77r_DctCyQ4a5ZNjyIilvXVEAN_k-jCjrhrbErg";
+var myApi = "899ebe2b8a35dfdf38dd465a71c3f9fa";
+var splash = "JrCz77r_DctCyQ4a5ZNjyIilvXVEAN_k-jCjrhrbErg";
 var cookieName = "lastSearch";
 
 const lastSearch = getSavedSearch();
@@ -29,7 +29,7 @@ function getDailyWeather() {
     // Save the search value to localStorage
     saveSearch(searchValue);
     fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?appid=${config.secret_key}&units=metric&q=${city.value}`
+      `https://api.openweathermap.org/data/2.5/forecast?appid=${myApi}&units=metric&q=${city.value}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -50,7 +50,7 @@ function getHourlyWeather() {
     // Save the search value to localStorage and set a cookie
     saveSearch(searchValue);
     fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?appid=${config.secret_key}&units=metric&q=${city.value}`
+      `https://api.openweathermap.org/data/2.5/forecast?appid=${myApi}&units=metric&q=${city.value}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -174,7 +174,7 @@ function displayCityImage(city, data) {
   const currentWeather = data.list[0];
   const weatherIconCode = currentWeather.weather[0].icon;
   fetch(
-    `https://api.unsplash.com/search/photos?query=${city}&client_id=${config.access_Key}`
+    `https://api.unsplash.com/search/photos?query=${city}"&client_id=${splash}`
   )
     .then((response) => response.json())
     .then((data) => {
