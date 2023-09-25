@@ -1,4 +1,4 @@
-import config from "./config.js";
+// import config from "./config.js";
 // console.log(config.secret_key);
 const city = document.getElementById("cityName");
 const submitButton = document.getElementById("submitButton");
